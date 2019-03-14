@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponControl : MonoBehaviour
 {
     public ParticleSystem fireweapon;
+    public AudioSource source;
    
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class WeaponControl : MonoBehaviour
         if(Input.GetButtonDown("Fire1"))
         {
             fireweapon.Emit(1);
+            source.Play();
         }
         
     }
