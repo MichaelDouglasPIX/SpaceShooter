@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class SkipControl : MonoBehaviour
 {
-    Vector3 movement;
+    Vector3 movement, rotation;
+    public GameObject meshship;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +17,10 @@ public class SkipControl : MonoBehaviour
     void Update()
     {
         movement = new Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0);
+
+        rotation = new Vector3(-movement.y, movement.x, 0);
+        meshship.transform.localRotation = Quaternion.Euler(rotation*30);
+
         transform.Translate(movement * Time.deltaTime * 40);
     }
 }
