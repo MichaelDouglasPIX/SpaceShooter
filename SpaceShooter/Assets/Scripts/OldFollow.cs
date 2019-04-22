@@ -8,12 +8,16 @@ public class OldFollow : MonoBehaviour
     Transform[] ways;
     public int index=1;
     public float velocity = 10;
+    Vector3 oldpos;
+    Quaternion oldrot;
 
     // Start is called before the first frame update
     void Start()
     {
         ways = way.GetComponentsInChildren<Transform>();
-        
+        oldpos = transform.position;
+        oldrot = transform.rotation;
+
     }
 
     // Update is called once per frame
@@ -29,6 +33,8 @@ public class OldFollow : MonoBehaviour
         if(Vector3.Distance(transform.position, ways[index].transform.position) < 1)
         {
             index++;
+            oldpos = transform.position;
+            oldrot = transform.rotation;
         }
         
     }

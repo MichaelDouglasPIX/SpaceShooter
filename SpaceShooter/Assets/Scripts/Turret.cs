@@ -23,7 +23,23 @@ public class Turret : MonoBehaviour
             //Arma segue o player
             barrel.transform.LookAt(target.transform);
             //Suporte pega a rotação da arma
-            support.transform.rotation = Quaternion.Euler(-90, barrel.transform.rotation.eulerAngles.y, 0);
+            support.transform.rotation = Quaternion.Euler(0, barrel.transform.rotation.eulerAngles.y, 0);
         }
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        work = true;
+        weapon.Play();
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        work = false;
+        weapon.Stop();
     }
 }
