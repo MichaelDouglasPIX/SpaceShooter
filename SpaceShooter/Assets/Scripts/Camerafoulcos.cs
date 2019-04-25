@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Camerafoulcos : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    [SerializeField] GameObject target;
     // Update is called once per frame
     void Update()
     {
-        
+        transform.LookAt(target.transform);
     }
 }
