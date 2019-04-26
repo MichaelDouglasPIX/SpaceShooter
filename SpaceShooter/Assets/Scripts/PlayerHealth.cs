@@ -15,9 +15,10 @@ public class PlayerHealth : MonoBehaviour
 
     public OldFollow scriptoldfollow;
     public FollowWay scriptfollowway;
+    public GameOver scriptGameOver;
     
 
-    bool des = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +58,7 @@ public class PlayerHealth : MonoBehaviour
         if(currentHealth <= 0)
         {
             OldFollow.scripton = true;
+            GameOver.perdeu = true;
             Destroy(gameObject);
             gameObject.SetActive (false);
 
